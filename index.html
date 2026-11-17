@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FELINE — The Art of Cats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <div id="preloader">
+    <div class="loader-content">
+      <div class="loader-logo">FELINE</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" aria-hidden="true"></div> 
+
+  <section class="hero-section" id="hero-section">
+    <div class="hero-canvas-container"><canvas id="hero-canvas"></canvas></div>
+    <div class="particles-container" id="particles-container" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line">BEAUTY</span>
+        <span class="title-line">HAS</span>
+        <span class="title-line">A SOUL.</span>
+      </h1>
+      <p class="hero-subtitle">Discover the extraordinary world of feline elegance.</p>
+      <button class="btn-explore" id="explore-btn">
+        <span>EXPLORE</span>
+        <div class="btn-arrow" aria-hidden="true">→</div>
+      </button>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="indicator-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <section class="collection-section" id="collection-section">
+    <div class="section-header">
+      <h2 class="section-title">FELINE BREEDS</h2>
+      <p class="section-subtitle">The Artistry of Breed Champions</p>
+    </div>
+
+    <div class="collection-grid">
+      <div class="breed-card" data-breed="persian">
+        <div class="breed-image-container">
+          <img src="https://images.unsplash.com/photo-1578495877249-7c4b6d8a5a34?w=1200&h=1600&fit=crop&auto=format" alt="Persian Cat" loading="lazy">
+          <div class="breed-overlay"><h3>Persian</h3><p>Luxurious long coat, gentle expression</p></div>
+        </div>
+      </div>
+
+      <div class="breed-card" data-breed="mainecoon">
+        <div class="breed-image-container">
+          <img src="https://images.unsplash.com/photo-1542314831-6c2c4a4b3a8d?w=1200&h=1600&fit=crop&auto=format" alt="Maine Coon" loading="lazy">
+          <div class="breed-overlay"><h3>Maine Coon</h3><p>The gentle giant, water-loving</p></div>
+        </div>
+      </div>
+
+      <div class="breed-card" data-breed="bengal">
+        <div class="breed-image-container">
+          <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1200&h=1600&fit=crop&auto=format" alt="Bengal Cat" loading="lazy">
+          <div class="breed-overlay"><h3>Bengal</h3><p>Jungle spotted marvel, wild beauty</p></div>
+        </div>
+      </div>
+
+      <div class="breed-card" data-breed="ragdoll">
+        <div class="breed-image-container">
+          <img src="https://images.unsplash.com/photo-1598300054720-4e9a3cccbd2c?w=1200&h=1600&fit=crop&auto=format" alt="Ragdoll Cat" loading="lazy">
+          <div class="breed-overlay"><h3>Ragdoll</h3><p>Possessed of an uncanny calm</p></div>
+        </div>
+      </div>
+
+      <div class="breed-card" data-breed="british-shorthair">
+        <div class="breed-image-container">
+          <img src="https://images.unsplash.com/photo-1552411827-67e1d68a0287?w=1200&h=1600&fit=crop&auto=format" alt="British Shorthair" loading="lazy">
+          <div class="breed-overlay"><h3>British Shorthair</h3><p>Dense coat, round face, regal bearing</p></div>
+        </div>
+      </div>
+
+      <div class="breed-card" data-breed="siamese">
+        <div class="breed-image-container">
+          <img src="https://images.unsplash.com/photo-1518473615218-7a57e14a2a34?w=1200&h=1600&fit=crop&auto=format" alt="Siamese Cat" loading="lazy">
+          <div class="breed-overlay"><h3>Siamese</h3><p>Vocal personality, striking contrast</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="interactive-section" id="interactive-section">
+    <div class="section-header">
+      <h2 class="section-title">INTERACT</h2>
+      <p class="section-subtitle">Experience the living art</p>
+    </div>
+
+    <div class="interactive-container">
+      <div class="cat-container-3d">
+        <canvas id="interactive-canvas"></canvas>
+        <div class="cat-info"><h3>Meet Whisker</h3><p>Click or hover to interact</p></div>
+      </div>
+      <div class="interaction-hints">
+        <div class="hint-item"><div class="hint-icon" aria-hidden="true">🖱️</div><span>Click for reaction</span></div>
+        <div class="hint-item"><div class="hint-icon" aria-hidden="true">🖱️</div><span>Move mouse for gaze</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section" id="gallery-section">
+    <div class="section-header">
+      <h2 class="section-title">GALLERY</h2>
+      <p class="section-subtitle">Captures of beauty in motion</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-large">
+        <img src="https://images.unsplash.com/photo-1542314831-6c2c4a4b3a8d?w=1920&h=1080&fit=crop&auto=format" alt="Cinematic cat photography" loading="lazy">
+        <div class="gallery-caption">The Golden Hour</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1578495877249-7c4b6d8a5a34?w=1200&h=900&fit=crop&auto=format" alt="Cat portrait" loading="lazy">
+        <div class="gallery-caption">Whisper of Velvet</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1200&h=900&fit=crop&auto=format" alt="Cat in motion" loading="lazy">
+        <div class="gallery-caption">Feline Grace</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1518473615218-7a57e14a2a34?w=1200&h=900&fit=crop&auto=format" alt="Cat landscape" loading="lazy">
+        <div class="gallery-caption">Serene Contemplation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1552411827-67e1d68a0287?w=1200&h=900&fit=crop&auto=format" alt="Cat in natural light" loading="lazy">
+        <div class="gallery-caption">Dappled Sunlight</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1598300054720-4e9a3cccbd2c?w=1200&h=900&fit=crop&auto=format" alt="Intimate cat moment" loading="lazy">
+        <div class="gallery-caption">The Quiet Moment</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-section" id="final-section">
+    <div class="final-overlay">
+      <div class="final-content">
+        <h2 class="final-title">THE WORLD IS MORE BEAUTIFUL WITH CATS.</h2>
+        <button class="btn-final-explore" id="final-explore-btn">
+          <span>EXPLORE THE COLLECTION</span>
+          <div class="btn-arrow-reverse" aria-hidden="true">←</div>
+        </button>
+      </div>
+    </div>
+    <div class="final-cat-image">
+      <img src="https://images.unsplash.com/photo-1542314831-6c2c4a4b3a8d?w=1920&h=1080&fit=crop&auto=format" alt="Cinematic cat portrait" loading="lazy">
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">FELINE</div>
+      <p class="footer-tagline">The Art of Cats</p>
+      <div class="footer-links">
+        <a href="#collection-section">Collection</a>
+        <a href="#interactive-section">Interactive</a>
+        <a href="#gallery-section">Gallery</a>
+      </div>
+      <div class="footer-copyright">© 2024 FELINE. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
